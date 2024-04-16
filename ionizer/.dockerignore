@@ -1,0 +1,16 @@
+__pycache__
+*.log
+*.pot
+*.pyc
+*.sqlite3
+*.sqlite3-journal
+local_settings.py
+media
+mysql
+conf.d
+.cache
+*.log
+
+.git
+.env
+.venv

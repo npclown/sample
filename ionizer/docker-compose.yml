@@ -1,0 +1,59 @@
+version: '3.8'
+services:
+  web:
+    image: nginx:latest
+    container_name: ion-nginx
+    ports:
+      - 9780:80
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d:ro
+    networks:
+      - internal
+    depends_on:
+      - ionizer
+
+  mysql:
+    image: mysql:8.0
+    container_name: ion-mysql
+    restart: on-failure
+    environment:
+      MYSQL_DATABASE: ion
+      MYSQL_ROOT_PASSWORD: 1c2aRC<X(f2fjm3f!@r9fcx19,F
+    ports:
+      - 33066:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - internal
+
+  redis:
+    image: redis:latest
+    container_name: ion-redis
+    restart: on-failure
+    volumes:
+      - ./redis/data:/data
+    networks:
+      - internal
+
+  ionizer:
+    build: ../ionizer/
+    container_name: ionizer
+    command: "poetry run python -m gunicorn ionizer.asgi:application --graceful-timeout 5 -w 12 -b 0.0.0.0:8000 -k uvicorn.workers.UvicornWorker"
+    ports:
+      - 8000:8000
+    networks:
+      - internal
+    depends_on:
+      - mysql
+      - redis
+    volumes:
+      - ./.env:/app/.env
+
+#molecule:
+#    image: node:20
+#    container_name: molecule
+
+
+networks:
+  internal:
+    driver: bridge

@@ -1,0 +1,16 @@
+{
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+
+    "isort.args":["--profile", "black"],
+
+    "flake8.ignorePatterns": [
+        "*/migrations/*"
+    ],
+}

@@ -1,0 +1,52 @@
+.color-scale-0 {
+  fill: #effaff;
+}
+.color-scale-1 {
+  fill: #def4ff;
+}
+.color-scale-2 {
+  fill: #b6ebff;
+}
+.color-scale-3 {
+  fill: #75deff;
+}
+.color-scale-4 {
+  fill: #2ccfff;
+}
+.color-scale-5 {
+  fill: #00bfff;
+}
+.color-scale-6 {
+  fill: #0095d4;
+}
+.color-scale-7 {
+  fill: #0076ab;
+}
+.color-scale-8 {
+  fill: #00638d;
+}
+.color-scale-9 {
+  fill: #065374;
+}
+.color-scale-full {
+  fill: #04344d;
+}
+
+.bg-color-scale-0 {
+  background-color: #effaff;
+}
+.bg-color-scale-1 {
+  background-color: #b6ebff;
+}
+.bg-color-scale-2 {
+  background-color: #2ccfff;
+}
+.bg-color-scale-3 {
+  background-color: #0095d4;
+}
+.bg-color-scale-4 {
+  background-color: #00638d;
+}
+.bg-color-scale-5 {
+  background-color: #04344d;
+}
